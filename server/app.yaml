@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: research
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: fastapi
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      # Flask
+      - name: server
+        image: app
+        imagePullPolicy: IfNotPresent
+        command: [ "/start.sh"]
+        resources:
+          limits:
+            cpu: 100m
+            memory: 500M
+        ports:
+        - containerPort: 80
+

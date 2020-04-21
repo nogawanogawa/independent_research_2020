@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: research
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  strategy:
+    type: Recreate
+  template: 
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      # Flask
+      - name: server
+        image: myapp_flask
+        imagePullPolicy: IfNotPresent
+        command: [ "flask", "run", "--host", "0.0.0.0", "--port", "5000"]
+        resources:
+          limits:
+            cpu: 100m
+            memory: 500M
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: password 
+        - name: BACKEND_HOST
+          value: localhost:3306
+        ports:
+        - containerPort: 5000
