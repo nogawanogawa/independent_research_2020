@@ -1,0 +1,4 @@
+node_modules
+frontend/.firebase
+vue.config.js
+params.js
