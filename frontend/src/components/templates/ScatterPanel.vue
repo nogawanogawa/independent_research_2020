@@ -30,7 +30,10 @@ export default {
       ],
       chartOptions: {
         chart: {
-          type: "scatter"
+          type: "scatter",
+          toolbar: {
+            show: false
+          }
           //          events: {
           //            dataPointSelection: function(event, chartContext, config) {
           //              alert(config);

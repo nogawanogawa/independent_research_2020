@@ -18,6 +18,11 @@ export default {
         dataLabels: {
           enabled: false
         },
+        chart: {
+          toolbar: {
+            show: false
+          }
+        },
         fill: {
           opacity: 0.8,
           gradient: {

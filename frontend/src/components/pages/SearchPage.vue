@@ -9,6 +9,9 @@
               <v-flex xs6>
                 <ScatterPanel/>
               </v-flex>
+              <v-flex xs6>
+                <BubbleChartPanel/>
+              </v-flex>
             </v-layout>
           </v-container>
         </v-layout>
@@ -20,12 +23,14 @@
 <script>
 import Sidebar from "@/components/templates/Sidebar.vue";
 import ScatterPanel from "@/components/templates/ScatterPanel.vue";
+import BubbleChartPanel from "@/components/templates/BubbleChartPanel.vue";
 
 export default {
   name: "SearchPage",
   components: {
     Sidebar,
-    ScatterPanel
+    ScatterPanel,
+    BubbleChartPanel
   },
   props: {
     source: String
